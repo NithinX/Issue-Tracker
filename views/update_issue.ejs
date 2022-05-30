@@ -1,0 +1,77 @@
+<%- include('include/_header') %>
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/"><i class="fas fa-angle-double-left"></i> All Issues</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Issue</h2>
+            <span class="text-light">Use the below form to Update the Issue</span>
+        </div>
+
+        <!-- add user form -->
+         <!-- form handling -->
+ <form action="/update-issue/<%= issueId %> " method="post" id="update_issue">
+    <div class="new_issue">
+        <div class="form-group">
+            <label for="name" class="text-light">Description</label>
+            <input type="text" name="description" value="<%= issue[issueId].description %> " autocomplete="off" required>
+        </div>
+        <div class="form-group">
+            <label for="severity" class="text-light">Severity</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-2" name="severity" value="Minor" <%= issue[issueId].severity == 'Minor' ? 'checked' : '' %> >
+                <label for="radio-2" class="radio-label">Minor</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-3" name="severity" value="Major" <%= issue[issueId].severity == 'Major' ? 'checked' : '' %>>
+                <label for="radio-3" class="radio-label">Major</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="severity" value="Critical" <%= issue[issueId].severity == 'Critical' ? 'checked' : '' %> >
+                <label for="radio-5" class="radio-label">Critical</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender" class="text-light">Status</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-6" name="status" value="Open" <%= issue[issueId].status == 'Open' ? 'checked' : '' %> >
+                <label for="radio-6" class="radio-label">Active</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-7" name="status" value="In Progress" <%= issue[issueId].status == 'In Progress' ? 'checked' : '' %>>
+                <label for="radio-7" class="radio-label">In Progress</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-8" name="status" value="Closed" <%= issue[issueId].status == 'Closed' ? 'checked' : '' %> >
+                <label for="radio-8" class="radio-label">Closed</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="createDate" class="text-light">Create Date</label>
+            <input type="date" class="" name="createDate" value="<%= issue[issueId].createDate %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="closeDate" class="text-light">Close Date</label>
+            <input type="date" class="" name="closeDate" value="<%= issue[issueId].closeDate %>" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>
+       
+    </div>
+</main>
+<!-- /Main Site -->
+
+<%- include('include/_footer') %>
