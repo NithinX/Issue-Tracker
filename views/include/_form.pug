@@ -1,0 +1,36 @@
+
+form#add_issue(action='/issue/addissue' method='POST')
+  .new_issue
+    .form-group
+      label.text-light(for='name') Description
+      input(type='text' name='description' placeholder='' autocomplete='off' required='')
+    .form-group
+      label.text-light(for='severity') Severity
+      .radio.inline
+        input#radio-2(type='radio' name='severity' value='Minor')
+        label.radio-label(for='radio-2') Minor
+      .radio.inline
+        input#radio-3(type='radio' name='severity' value='Major')
+        label.radio-label(for='radio-3') Major
+      .radio.inline
+        input#radio-5(type='radio' name='severity' value='Critical')
+        label.radio-label(for='radio-5') Critical
+    .form-group
+      label.text-light(for='gender') Status
+      .radio.inline
+        input#radio-6(type='radio' name='status' value='Open')
+        label.radio-label(for='radio-6') Active
+      .radio.inline
+        input#radio-7(type='radio' name='status' value='In Progress')
+        label.radio-label(for='radio-7') In Progress
+      .radio.inline
+        input#radio-8(type='radio' name='status' value='Closed')
+        label.radio-label(for='radio-8') Closed
+    .form-group
+      label.text-light(for='createDate') Create Date
+      input(type='date' name='createDate' required='')
+    .form-group
+      label.text-light(for='closeDate') Close Date
+      input(type='date' name='closeDate' required='')
+    .form-group
+      button.btn.text-dark.update(type='submit') Save

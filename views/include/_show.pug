@@ -1,0 +1,16 @@
+-for(var item in issues) {
+  tr
+  td=item
+  td=issues[item].description
+  td=issues[item].severity
+  td=issues[item].status
+  td=issues[item].createDate
+  td=issues[item].closeDate
+  td
+    a.btn.border-shadow.update(href=`/update-issue?id=${item}`)
+      span.text-gradient
+        i.fas.fa-pencil-alt
+    a.btn.border-shadow.delete(href=`/delete-issue?id=${item}`)
+      span.text-gradient
+        i.fas.fa-times
+-}

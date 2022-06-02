@@ -1,0 +1,50 @@
+include include/_header.pug
+
+main#site-main
+  .container
+    .box-nav.d-flex.justify-between
+      .filter
+        a(href='/')
+          i.fas.fa-angle-double-left
+          |  All Issues
+    .form-title.text-center
+      h2.text-dark Update Issue
+      span.text-light Use the below form to Update the Issue
+
+    form#update_issue(action=`/update-issue/${issueId}` method='post')
+      .new_issue
+        .form-group
+          label.text-light(for='name') Description
+          input(type='text' name='description' value=`${issue[issueId].description}` autocomplete='off' required='')
+        .form-group
+          label.text-light(for='severity') Severity
+          .radio.inline
+            input#radio-2(type='radio' name='severity' value="Minor" checked=issue[issueId].severity=="Minor")
+            label.radio-label(for='radio-2') Minor
+          .radio.inline
+            input#radio-3(type='radio' name='severity' value="Major"  checked=issue[issueId].severity=="Major" )
+            label.radio-label(for='radio-3') Major
+          .radio.inline
+            input#radio-5(type='radio' name='severity' value="Critical" checked=issue[issueId].severity=="Critical" )
+            label.radio-label(for='radio-5') Critical
+        .form-group
+          label.text-light(for='gender') Status
+          .radio.inline
+            input#radio-6(type='radio' name='status' value="Open" checked=issue[issueId].status=="Open" )
+            label.radio-label(for='radio-6') Open
+          .radio.inline
+            input#radio-7(type='radio' name='status' value="In Progress" checked=issue[issueId].status=="In Progress" )
+            label.radio-label(for='radio-7') In Progress
+          .radio.inline
+            input#radio-8(type='radio' name='status' value="Closed" checked=issue[issueId].status=="Closed" )
+            label.radio-label(for='radio-8') Closed
+        .form-group
+          label.text-light(for='createDate') Create Date
+          input(type='date' name='createDate' value=`${issue[issueId].createDate}` required='')
+        .form-group
+          label.text-light(for='closeDate') Close Date
+          input(type='date' name='closeDate' value=`${issue[issueId].closeDate}` required='')
+        .form-group
+          button.btn.text-dark.update(type='submit') Save
+
+include include/_footer.pug

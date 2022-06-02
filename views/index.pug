@@ -1,0 +1,22 @@
+include include/_header.pug
+
+main#site-main
+  .container
+    .box-nav.d-flex.justify-between
+      a.border-shadow(href='/add-issue')
+        span.text-gradient New Issue
+    // form handling
+    form(action='/' method='POST')
+      table.table
+        thead.thead-dark
+          tr
+            th ID
+            th Description
+            th Severity
+            th Status
+            th Create date
+            th Close date
+            th Update / Delete
+        tbody
+          include include/_show.pug
+                

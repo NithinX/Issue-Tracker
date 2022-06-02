@@ -1,0 +1,16 @@
+include include/_header.pug
+
+main#site-main
+  .container
+    .box-nav.d-flex.justify-between
+      .filter
+        a(href='/')
+          i.fas.fa-angle-double-left
+          |  All Issues
+    .form-title.text-center
+      h2.text-dark New Issue
+      span.text-light Use the below form to create new Issue
+    
+    include include/_form.pug
+
+include include/_footer.pug
